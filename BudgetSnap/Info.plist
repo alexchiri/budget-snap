@@ -22,6 +22,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Budget Snap needs permission to save screenshots.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Budget Snap needs access to your photos to import banking screenshots for transaction extraction.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -63,10 +67,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Budget Snap needs access to your photos to import banking screenshots for transaction extraction.</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Budget Snap needs permission to save screenshots.</string>
 	<key>UISupportsDocumentBrowser</key>
 	<true/>
 	<key>UTImportedTypeDeclarations</key>
