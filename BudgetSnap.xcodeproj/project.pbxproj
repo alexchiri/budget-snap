@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A0000000000000000000001 /* BudgetSnapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000001 /* BudgetSnapApp.swift */; };
+		1A0000000000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000002 /* ContentView.swift */; };
+		1A0000000000000000000003 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000003 /* Account.swift */; };
+		1A0000000000000000000004 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000004 /* Budget.swift */; };
+		1A0000000000000000000005 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000005 /* Category.swift */; };
+		1A0000000000000000000006 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000006 /* Transaction.swift */; };
+		1A0000000000000000000007 /* DataExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000007 /* DataExportService.swift */; };
+		1A0000000000000000000008 /* DuplicateDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000008 /* DuplicateDetectionService.swift */; };
+		1A0000000000000000000009 /* OCRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000009 /* OCRService.swift */; };
+		1A000000000000000000000A /* TransactionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000000A /* TransactionParser.swift */; };
+		1A000000000000000000000B /* AccountEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000000B /* AccountEditView.swift */; };
+		1A000000000000000000000C /* AccountDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000000C /* AccountDetailView.swift */; };
+		1A000000000000000000000D /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000000D /* AccountsView.swift */; };
+		1A000000000000000000000E /* AccountScreenshotImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000000E /* AccountScreenshotImportView.swift */; };
+		1A000000000000000000000F /* BudgetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000000000000000000000F /* BudgetsView.swift */; };
+		1A0000000000000000000010 /* BudgetEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000010 /* BudgetEditView.swift */; };
+		1A0000000000000000000011 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000011 /* CategoriesView.swift */; };
+		1A0000000000000000000012 /* CategoryEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000012 /* CategoryEditView.swift */; };
+		1A0000000000000000000013 /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000013 /* MonthPickerView.swift */; };
+		1A0000000000000000000014 /* ScreenshotImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000014 /* ScreenshotImportView.swift */; };
+		1A0000000000000000000015 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000015 /* SettingsView.swift */; };
+		1A0000000000000000000016 /* TransactionEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000016 /* TransactionEditView.swift */; };
+		1A0000000000000000000017 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000017 /* TransactionsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2A0000000000000000000001 /* BudgetSnapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSnapApp.swift; sourceTree = "<group>"; };
+		2A0000000000000000000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000003 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		2A0000000000000000000004 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
+		2A0000000000000000000005 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		2A0000000000000000000006 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		2A0000000000000000000007 /* DataExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExportService.swift; sourceTree = "<group>"; };
+		2A0000000000000000000008 /* DuplicateDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateDetectionService.swift; sourceTree = "<group>"; };
+		2A0000000000000000000009 /* OCRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRService.swift; sourceTree = "<group>"; };
+		2A000000000000000000000A /* TransactionParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionParser.swift; sourceTree = "<group>"; };
+		2A000000000000000000000B /* AccountEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditView.swift; sourceTree = "<group>"; };
+		2A000000000000000000000C /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailView.swift; sourceTree = "<group>"; };
+		2A000000000000000000000D /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
+		2A000000000000000000000E /* AccountScreenshotImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountScreenshotImportView.swift; sourceTree = "<group>"; };
+		2A000000000000000000000F /* BudgetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000010 /* BudgetEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetEditView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000011 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000012 /* CategoryEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEditView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000013 /* MonthPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000014 /* ScreenshotImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotImportView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000015 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000016 /* TransactionEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEditView.swift; sourceTree = "<group>"; };
+		2A0000000000000000000017 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
+		3A0000000000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A0000000000000000000001 /* BudgetSnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5A0000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6A0000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				6A0000000000000000000002 /* BudgetSnap */,
+				6A0000000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6A0000000000000000000002 /* BudgetSnap */ = {
+			isa = PBXGroup;
+			children = (
+				2A0000000000000000000001 /* BudgetSnapApp.swift */,
+				2A0000000000000000000002 /* ContentView.swift */,
+				6A0000000000000000000004 /* Models */,
+				6A0000000000000000000005 /* Services */,
+				6A0000000000000000000006 /* Views */,
+				3A0000000000000000000001 /* Info.plist */,
+			);
+			path = BudgetSnap;
+			sourceTree = "<group>";
+		};
+		6A0000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A0000000000000000000001 /* BudgetSnap.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6A0000000000000000000004 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2A0000000000000000000003 /* Account.swift */,
+				2A0000000000000000000004 /* Budget.swift */,
+				2A0000000000000000000005 /* Category.swift */,
+				2A0000000000000000000006 /* Transaction.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6A0000000000000000000005 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2A0000000000000000000007 /* DataExportService.swift */,
+				2A0000000000000000000008 /* DuplicateDetectionService.swift */,
+				2A0000000000000000000009 /* OCRService.swift */,
+				2A000000000000000000000A /* TransactionParser.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6A0000000000000000000006 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2A000000000000000000000B /* AccountEditView.swift */,
+				2A000000000000000000000C /* AccountDetailView.swift */,
+				2A000000000000000000000D /* AccountsView.swift */,
+				2A000000000000000000000E /* AccountScreenshotImportView.swift */,
+				2A000000000000000000000F /* BudgetsView.swift */,
+				2A0000000000000000000010 /* BudgetEditView.swift */,
+				2A0000000000000000000011 /* CategoriesView.swift */,
+				2A0000000000000000000012 /* CategoryEditView.swift */,
+				2A0000000000000000000013 /* MonthPickerView.swift */,
+				2A0000000000000000000014 /* ScreenshotImportView.swift */,
+				2A0000000000000000000015 /* SettingsView.swift */,
+				2A0000000000000000000016 /* TransactionEditView.swift */,
+				2A0000000000000000000017 /* TransactionsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7A0000000000000000000001 /* BudgetSnap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A0000000000000000000001 /* Build configuration list for PBXNativeTarget "BudgetSnap" */;
+			buildPhases = (
+				9A0000000000000000000001 /* Sources */,
+				5A0000000000000000000001 /* Frameworks */,
+				AA0000000000000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BudgetSnap;
+			productName = BudgetSnap;
+			productReference = 4A0000000000000000000001 /* BudgetSnap.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA0000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					7A0000000000000000000001 = {
+						CreatedOnToolsVersion = 14.0;
+					};
+				};
+			};
+			buildConfigurationList = 8A0000000000000000000002 /* Build configuration list for PBXProject "BudgetSnap" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6A0000000000000000000001;
+			productRefGroup = 6A0000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A0000000000000000000001 /* BudgetSnap */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA0000000000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9A0000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A0000000000000000000001 /* BudgetSnapApp.swift in Sources */,
+				1A0000000000000000000002 /* ContentView.swift in Sources */,
+				1A0000000000000000000003 /* Account.swift in Sources */,
+				1A0000000000000000000004 /* Budget.swift in Sources */,
+				1A0000000000000000000005 /* Category.swift in Sources */,
+				1A0000000000000000000006 /* Transaction.swift in Sources */,
+				1A0000000000000000000007 /* DataExportService.swift in Sources */,
+				1A0000000000000000000008 /* DuplicateDetectionService.swift in Sources */,
+				1A0000000000000000000009 /* OCRService.swift in Sources */,
+				1A000000000000000000000A /* TransactionParser.swift in Sources */,
+				1A000000000000000000000B /* AccountEditView.swift in Sources */,
+				1A000000000000000000000C /* AccountDetailView.swift in Sources */,
+				1A000000000000000000000D /* AccountsView.swift in Sources */,
+				1A000000000000000000000E /* AccountScreenshotImportView.swift in Sources */,
+				1A000000000000000000000F /* BudgetsView.swift in Sources */,
+				1A0000000000000000000010 /* BudgetEditView.swift in Sources */,
+				1A0000000000000000000011 /* CategoriesView.swift in Sources */,
+				1A0000000000000000000012 /* CategoryEditView.swift in Sources */,
+				1A0000000000000000000013 /* MonthPickerView.swift in Sources */,
+				1A0000000000000000000014 /* ScreenshotImportView.swift in Sources */,
+				1A0000000000000000000015 /* SettingsView.swift in Sources */,
+				1A0000000000000000000016 /* TransactionEditView.swift in Sources */,
+				1A0000000000000000000017 /* TransactionsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CA0000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CA0000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CA0000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = BudgetSnap/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.budgetsnap.BudgetSnap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CA0000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = BudgetSnap/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.budgetsnap.BudgetSnap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8A0000000000000000000001 /* Build configuration list for PBXNativeTarget "BudgetSnap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA0000000000000000000003 /* Debug */,
+				CA0000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A0000000000000000000002 /* Build configuration list for PBXProject "BudgetSnap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA0000000000000000000001 /* Debug */,
+				CA0000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BA0000000000000000000001 /* Project object */;
+}
