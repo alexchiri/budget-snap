@@ -23,8 +23,6 @@ class TransactionParser {
         // - Merchant Amount Date
         // - Date Merchant Amount
 
-        var currentTransaction: ParsedTransaction?
-
         for (index, line) in lines.enumerated() {
             let trimmedLine = line.trimmingCharacters(in: .whitespaces)
             guard !trimmedLine.isEmpty else { continue }

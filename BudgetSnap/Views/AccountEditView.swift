@@ -33,52 +33,9 @@ struct AccountEditView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Account Details") {
-                    TextField("Account Name", text: $name)
-                }
-
-                Section("Icon") {
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))], spacing: 16) {
-                        ForEach(availableIcons, id: \.self) { icon in
-                            Button {
-                                selectedIcon = icon
-                            } label: {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .fill(selectedIcon == icon ? Color(hex: selectedColor) ?? .blue : Color(.systemGray5))
-                                    Image(systemName: icon)
-                                        .font(.title2)
-                                        .foregroundColor(selectedIcon == icon ? .white : .primary)
-                                }
-                                .frame(height: 60)
-                            }
-                        }
-                    }
-                    .padding(.vertical, 8)
-                }
-
-                Section("Color") {
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 50))], spacing: 16) {
-                        ForEach(availableColors, id: \.self) { color in
-                            Button {
-                                selectedColor = color
-                            } label: {
-                                ZStack {
-                                    Circle()
-                                        .fill(Color(hex: color) ?? .blue)
-                                        .frame(width: 50, height: 50)
-                                    if selectedColor == color {
-                                        Image(systemName: "checkmark")
-                                            .foregroundColor(.white)
-                                            .font(.title3)
-                                            .bold()
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    .padding(.vertical, 8)
-                }
+                accountDetailsSection
+                iconSection
+                colorSection
             }
             .navigationTitle(account == nil ? "New Account" : "Edit Account")
             .navigationBarTitleDisplayMode(.inline)
@@ -100,6 +57,67 @@ struct AccountEditView: View {
                 Button("OK", role: .cancel) { }
             } message: {
                 Text(errorMessage)
+            }
+        }
+    }
+
+    private var accountDetailsSection: some View {
+        Section("Account Details") {
+            TextField("Account Name", text: $name)
+        }
+    }
+
+    private var iconSection: some View {
+        Section("Icon") {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 60))], spacing: 16) {
+                ForEach(availableIcons, id: \.self) { icon in
+                    iconButton(for: icon)
+                }
+            }
+            .padding(.vertical, 8)
+        }
+    }
+
+    private func iconButton(for icon: String) -> some View {
+        Button {
+            selectedIcon = icon
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(selectedIcon == icon ? Color(hex: selectedColor) ?? .blue : Color(.systemGray5))
+                Image(systemName: icon)
+                    .font(.title2)
+                    .foregroundColor(selectedIcon == icon ? .white : .primary)
+            }
+            .frame(height: 60)
+        }
+    }
+
+    private var colorSection: some View {
+        Section("Color") {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 50))], spacing: 16) {
+                ForEach(availableColors, id: \.self) { color in
+                    colorButton(for: color)
+                }
+            }
+            .padding(.vertical, 8)
+        }
+    }
+
+    private func colorButton(for color: String) -> some View {
+        Button {
+            selectedColor = color
+        } label: {
+            ZStack {
+                Circle()
+                    .fill(Color(hex: color) ?? .blue)
+                    .frame(width: 50, height: 50)
+                if selectedColor == color {
+                    Image(systemName: "checkmark")
+                        .foregroundColor(.white)
+                        .font(.title3)
+                        .bold()
+                }
             }
         }
     }
