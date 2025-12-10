@@ -1,0 +1,68 @@
+//
+//  Transaction.swift
+//  BudgetSnap
+//
+//  Model for financial transactions extracted from screenshots
+//
+
+import Foundation
+import SwiftData
+
+@Model
+final class Transaction {
+    var id: UUID
+    var date: Date
+    var amount: Double
+    var merchant: String
+    var transactionDescription: String
+    var category: Category?
+    var isReviewed: Bool
+    var needsCorrection: Bool
+    var originalOCRText: String
+    var screenshotHash: String // For duplicate detection
+    var createdAt: Date
+    var lastModifiedAt: Date
+
+    init(
+        id: UUID = UUID(),
+        date: Date,
+        amount: Double,
+        merchant: String,
+        transactionDescription: String = "",
+        category: Category? = nil,
+        isReviewed: Bool = false,
+        needsCorrection: Bool = false,
+        originalOCRText: String = "",
+        screenshotHash: String = "",
+        createdAt: Date = Date(),
+        lastModifiedAt: Date = Date()
+    ) {
+        self.id = id
+        self.date = date
+        self.amount = amount
+        self.merchant = merchant
+        self.transactionDescription = transactionDescription
+        self.category = category
+        self.isReviewed = isReviewed
+        self.needsCorrection = needsCorrection
+        self.originalOCRText = originalOCRText
+        self.screenshotHash = screenshotHash
+        self.createdAt = createdAt
+        self.lastModifiedAt = lastModifiedAt
+    }
+
+    // Computed property to get month/year for grouping
+    var monthYear: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM"
+        return formatter.string(from: date)
+    }
+
+    // Format amount as currency
+    var formattedAmount: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale.current
+        return formatter.string(from: NSNumber(value: amount)) ?? "$\(amount)"
+    }
+}
