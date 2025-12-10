@@ -185,9 +185,11 @@ struct TransactionExport: Codable {
     let id: UUID
     let date: Date
     let amount: Double
+    let isIncome: Bool
     let merchant: String
     let description: String
     let categoryID: UUID?
+    let accountID: UUID?
     let isReviewed: Bool
     let needsCorrection: Bool
     let originalOCRText: String
@@ -199,9 +201,11 @@ struct TransactionExport: Codable {
         self.id = transaction.id
         self.date = transaction.date
         self.amount = transaction.amount
+        self.isIncome = transaction.isIncome
         self.merchant = transaction.merchant
         self.description = transaction.transactionDescription
         self.categoryID = transaction.category?.id
+        self.accountID = transaction.account?.id
         self.isReviewed = transaction.isReviewed
         self.needsCorrection = transaction.needsCorrection
         self.originalOCRText = transaction.originalOCRText

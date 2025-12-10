@@ -1,17 +1,12 @@
-//
-//  ScreenshotImportView.swift
-//  BudgetSnap
-//
-//  View for importing and processing screenshots
-//
-
 import SwiftUI
 import PhotosUI
 import SwiftData
 
-struct ScreenshotImportView: View {
+struct AccountScreenshotImportView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
+
+    let account: Account
 
     @State private var selectedItems: [PhotosPickerItem] = []
     @State private var selectedImages: [UIImage] = []
@@ -32,14 +27,12 @@ struct ScreenshotImportView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
-                // Progress indicator
                 ProgressView(value: progressValue) {
                     Text(stepDescription)
                         .font(.headline)
                 }
                 .padding()
 
-                // Content based on current step
                 switch currentStep {
                 case .selecting:
                     selectingView
@@ -56,7 +49,7 @@ struct ScreenshotImportView: View {
                 Spacer()
             }
             .padding()
-            .navigationTitle("Import Screenshots")
+            .navigationTitle("Import to \(account.name)")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -78,8 +71,6 @@ struct ScreenshotImportView: View {
         }
     }
 
-    // MARK: - Step Views
-
     private var selectingView: some View {
         VStack(spacing: 20) {
             Image(systemName: "photo.stack")
@@ -100,7 +91,7 @@ struct ScreenshotImportView: View {
                 maxSelectionCount: 20,
                 matching: .images
             ) {
-                Label("Choose Photos", systemImage: "photo.on.rectangle")
+                Text("Choose Photos")
                     .frame(maxWidth: .infinity)
                     .padding()
                     .background(Color.blue)
@@ -108,25 +99,13 @@ struct ScreenshotImportView: View {
                     .cornerRadius(10)
             }
             .padding(.horizontal)
-            .onChange(of: selectedItems) { oldValue, newValue in
+            .onChange(of: selectedItems) { _, _ in
                 Task {
                     await loadSelectedImages()
+                    if !selectedImages.isEmpty {
+                        processImages()
+                    }
                 }
-            }
-
-            if !selectedImages.isEmpty {
-                Text("\(selectedImages.count) image(s) selected")
-                    .foregroundColor(.secondary)
-
-                Button(action: processImages) {
-                    Label("Process Screenshots", systemImage: "arrow.right.circle.fill")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.green)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-                .padding(.horizontal)
             }
         }
     }
@@ -136,61 +115,79 @@ struct ScreenshotImportView: View {
             ProgressView()
                 .scaleEffect(1.5)
 
-            Text("Processing Screenshots...")
+            Text("Processing \(selectedImages.count) screenshot(s)...")
                 .font(.title3)
                 .fontWeight(.medium)
 
-            Text("Extracting transaction data using OCR")
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
-
-            Text("\(selectedImages.count) screenshot(s)")
-                .font(.caption)
+            Text("Extracting transaction details")
+                .font(.subheadline)
                 .foregroundColor(.secondary)
         }
     }
 
     private var reviewingView: some View {
-        VStack(spacing: 15) {
-            HStack {
-                Image(systemName: "checkmark.circle.fill")
-                    .foregroundColor(.green)
-                    .font(.title2)
+        VStack(spacing: 16) {
+            if skippedDuplicates > 0 {
+                HStack {
+                    Image(systemName: "info.circle.fill")
+                        .foregroundColor(.blue)
+                    Text("Skipped \(skippedDuplicates) duplicate screenshot(s)")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+                .padding()
+                .background(Color.blue.opacity(0.1))
+                .cornerRadius(8)
+            }
 
-                VStack(alignment: .leading) {
-                    Text("Found \(processedTransactions.count) Transaction(s)")
+            if processedTransactions.isEmpty {
+                VStack(spacing: 16) {
+                    Image(systemName: "exclamationmark.triangle")
+                        .font(.system(size: 50))
+                        .foregroundColor(.orange)
+
+                    Text("No New Transactions Found")
                         .font(.headline)
 
-                    if skippedDuplicates > 0 {
-                        Text("\(skippedDuplicates) duplicate(s) skipped")
-                            .font(.caption)
-                            .foregroundColor(.orange)
+                    Text("The selected screenshots may be duplicates or don't contain recognizable transaction data")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+
+                    Button(action: { dismiss() }) {
+                        Text("Done")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
                     }
+                    .padding(.horizontal)
+                }
+            } else {
+                ScrollView {
+                    VStack(spacing: 12) {
+                        Text("Found \(processedTransactions.count) transaction(s)")
+                            .font(.headline)
+
+                        ForEach(processedTransactions) { transaction in
+                            TransactionPreviewCard(transaction: transaction)
+                        }
+                    }
+                    .padding(.horizontal)
                 }
 
-                Spacer()
-            }
-            .padding()
-            .background(Color.green.opacity(0.1))
-            .cornerRadius(10)
-
-            ScrollView {
-                VStack(spacing: 10) {
-                    ForEach(Array(processedTransactions.enumerated()), id: \.offset) { index, transaction in
-                        TransactionPreviewCard(transaction: transaction)
-                    }
+                Button(action: saveTransactions) {
+                    Text("Save Transactions")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                 }
+                .padding(.horizontal)
             }
-
-            Button(action: saveTransactions) {
-                Label("Save Transactions", systemImage: "arrow.down.circle.fill")
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-            }
-            .disabled(processedTransactions.isEmpty)
         }
     }
 
@@ -231,8 +228,6 @@ struct ScreenshotImportView: View {
         }
     }
 
-    // MARK: - Helper Properties
-
     private var progressValue: Double {
         switch currentStep {
         case .selecting: return 0.0
@@ -253,8 +248,6 @@ struct ScreenshotImportView: View {
         }
     }
 
-    // MARK: - Helper Methods
-
     private func loadSelectedImages() async {
         selectedImages = []
 
@@ -272,24 +265,21 @@ struct ScreenshotImportView: View {
 
         Task {
             do {
-                // Extract text from all images
                 let ocrResults = try await OCRService.shared.extractText(from: selectedImages)
 
-                // Check for duplicate screenshots
                 var newTransactions: [ParsedTransaction] = []
                 skippedDuplicates = 0
 
                 for result in ocrResults where result.success {
-                    // Check if screenshot already processed
                     if DuplicateDetectionService.shared.isScreenshotDuplicate(
                         hash: result.imageHash,
+                        accountId: account.id,
                         in: modelContext
                     ) {
                         skippedDuplicates += 1
                         continue
                     }
 
-                    // Parse transactions from OCR text
                     let parsed = TransactionParser.shared.parseTransactions(from: result.text)
                     newTransactions.append(contentsOf: parsed)
                 }
@@ -313,15 +303,14 @@ struct ScreenshotImportView: View {
         currentStep = .saving
 
         Task {
-            // Get the image hash for the first image (representing this batch)
             let batchHash = selectedImages.first.map { OCRService.shared.generateImageHash(from: $0) } ?? ""
 
             for parsed in processedTransactions {
-                // Check for transaction duplicates
                 if !DuplicateDetectionService.shared.isTransactionDuplicate(
                     amount: parsed.amount,
                     merchant: parsed.merchant,
                     date: parsed.date ?? Date(),
+                    accountId: account.id,
                     in: modelContext
                 ) {
                     let transaction = Transaction(
@@ -330,7 +319,7 @@ struct ScreenshotImportView: View {
                         isIncome: false,
                         merchant: parsed.merchant,
                         transactionDescription: parsed.description,
-                        account: nil,
+                        account: account,
                         isReviewed: false,
                         needsCorrection: parsed.needsReview,
                         originalOCRText: parsed.originalText,
@@ -354,61 +343,4 @@ struct ScreenshotImportView: View {
             }
         }
     }
-}
-
-// MARK: - Transaction Preview Card
-
-struct TransactionPreviewCard: View {
-    let transaction: ParsedTransaction
-
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 4) {
-                Text(transaction.merchant)
-                    .font(.headline)
-
-                if let date = transaction.date {
-                    Text(date.formatted(date: .abbreviated, time: .omitted))
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                }
-
-                if transaction.needsReview {
-                    Label("Needs Review", systemImage: "exclamationmark.triangle.fill")
-                        .font(.caption)
-                        .foregroundColor(.orange)
-                }
-            }
-
-            Spacer()
-
-            Text(transaction.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
-                .font(.headline)
-                .foregroundColor(.primary)
-
-            // Confidence indicator
-            Circle()
-                .fill(confidenceColor)
-                .frame(width: 8, height: 8)
-        }
-        .padding()
-        .background(Color(.systemBackground))
-        .cornerRadius(10)
-        .shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 1)
-    }
-
-    private var confidenceColor: Color {
-        if transaction.confidence >= 0.8 {
-            return .green
-        } else if transaction.confidence >= 0.5 {
-            return .orange
-        } else {
-            return .red
-        }
-    }
-}
-
-#Preview {
-    ScreenshotImportView()
-        .modelContainer(for: [Transaction.self, Budget.self, Category.self], inMemory: true)
 }

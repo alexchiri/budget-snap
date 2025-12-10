@@ -12,6 +12,7 @@ import SwiftData
 struct BudgetSnapApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
+            Account.self,
             Transaction.self,
             Budget.self,
             Category.self

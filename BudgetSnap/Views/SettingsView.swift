@@ -279,9 +279,11 @@ struct SettingsView: View {
                         id: txnExport.id,
                         date: txnExport.date,
                         amount: txnExport.amount,
+                        isIncome: txnExport.isIncome,
                         merchant: txnExport.merchant,
                         transactionDescription: txnExport.description,
                         category: txnExport.categoryID.flatMap { categoryMap[$0] },
+                        account: nil, // Account mapping would need to be handled separately
                         isReviewed: txnExport.isReviewed,
                         needsCorrection: txnExport.needsCorrection,
                         originalOCRText: txnExport.originalOCRText,

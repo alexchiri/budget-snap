@@ -215,7 +215,11 @@ struct BudgetsView: View {
         guard let category = budget.category else { return 0 }
 
         return transactions
-            .filter { $0.category?.id == category.id && $0.monthYear == selectedMonthYear }
+            .filter {
+                $0.category?.id == category.id &&
+                $0.monthYear == selectedMonthYear &&
+                !$0.isIncome // Only count expenses, not income
+            }
             .reduce(0) { $0 + $1.amount }
     }
 
