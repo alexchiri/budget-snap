@@ -84,7 +84,7 @@ struct AccountEditView: View {
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 8)
-                    .fill(selectedIcon == icon ? Color(selectedColor) ?? .blue : Color(.systemGray5))
+                    .fill(selectedIcon == icon ? Color(selectedColor) : Color(.systemGray5))
                 Image(systemName: icon)
                     .font(.title2)
                     .foregroundColor(selectedIcon == icon ? .white : .primary)
@@ -110,7 +110,7 @@ struct AccountEditView: View {
         } label: {
             ZStack {
                 Circle()
-                    .fill(Color(color) ?? .blue)
+                    .fill(Color(color))
                     .frame(width: 50, height: 50)
                 if selectedColor == color {
                     Image(systemName: "checkmark")
