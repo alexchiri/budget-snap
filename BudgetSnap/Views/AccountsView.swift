@@ -1,7 +1,6 @@
 import SwiftUI
 import SwiftData
 
-@available(iOS 17.0, *)
 struct AccountsView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Account.createdAt, order: .forward) private var accounts: [Account]

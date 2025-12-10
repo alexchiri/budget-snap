@@ -8,7 +8,6 @@
 import SwiftUI
 import SwiftData
 
-@available(iOS 17.0, *)
 struct BudgetsView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var budgets: [Budget]
