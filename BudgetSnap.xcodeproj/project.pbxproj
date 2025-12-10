@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		102AB93B2EEA0DA500C42793 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 102AB93A2EEA0DA500C42793 /* Assets.xcassets */; };
 		1A0000000000000000000001 /* BudgetSnapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000001 /* BudgetSnapApp.swift */; };
 		1A0000000000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000002 /* ContentView.swift */; };
 		1A0000000000000000000003 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0000000000000000000003 /* Account.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		102AB93A2EEA0DA500C42793 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A0000000000000000000001 /* BudgetSnapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSnapApp.swift; sourceTree = "<group>"; };
 		2A0000000000000000000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2A0000000000000000000003 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				6A0000000000000000000005 /* Services */,
 				6A0000000000000000000006 /* Views */,
 				3A0000000000000000000001 /* Info.plist */,
+				102AB93A2EEA0DA500C42793 /* Assets.xcassets */,
 			);
 			path = BudgetSnap;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				102AB93B2EEA0DA500C42793 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
