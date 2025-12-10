@@ -24,7 +24,7 @@ final class Account {
     }
 
     var color: Color {
-        Color(hex: colorHex)
+        Color(colorHex)
     }
 
     // Computed balance from all transactions

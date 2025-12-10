@@ -39,7 +39,7 @@ final class Category {
 
     // Convert hex color to SwiftUI Color
     var color: Color {
-        Color(hex: colorHex)
+        Color(colorHex)
     }
 
     // Default categories to seed the app
