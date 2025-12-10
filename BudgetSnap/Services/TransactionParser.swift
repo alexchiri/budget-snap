@@ -214,7 +214,8 @@ class TransactionParser {
 
 // MARK: - Models
 
-struct ParsedTransaction {
+struct ParsedTransaction: Identifiable {
+    let id = UUID()
     let date: Date?
     let amount: Double
     let merchant: String

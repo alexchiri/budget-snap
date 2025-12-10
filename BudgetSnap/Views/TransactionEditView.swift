@@ -35,6 +35,14 @@ struct TransactionEditView: View {
                             .multilineTextAlignment(.trailing)
                     }
 
+                    Picker("Type", selection: $transaction.isIncome) {
+                        Label("Expense", systemImage: "minus.circle")
+                            .tag(false)
+                        Label("Income", systemImage: "plus.circle")
+                            .tag(true)
+                    }
+                    .pickerStyle(.segmented)
+
                     DatePicker("Date", selection: $editedDate, displayedComponents: .date)
 
                     TextField("Description", text: $editedDescription, axis: .vertical)

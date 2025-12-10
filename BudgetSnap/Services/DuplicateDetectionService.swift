@@ -13,7 +13,25 @@ class DuplicateDetectionService {
 
     private init() {}
 
-    // Check if a screenshot has already been processed
+    // Check if a screenshot has already been processed (with account filter)
+    func isScreenshotDuplicate(hash: String, accountId: UUID, in context: ModelContext) -> Bool {
+        let descriptor = FetchDescriptor<Transaction>(
+            predicate: #Predicate { transaction in
+                transaction.screenshotHash == hash &&
+                transaction.account?.id == accountId
+            }
+        )
+
+        do {
+            let results = try context.fetch(descriptor)
+            return !results.isEmpty
+        } catch {
+            print("Error checking screenshot duplicate: \(error)")
+            return false
+        }
+    }
+
+    // Check if a screenshot has already been processed (without account filter, for backward compatibility)
     func isScreenshotDuplicate(hash: String, in context: ModelContext) -> Bool {
         let descriptor = FetchDescriptor<Transaction>(
             predicate: #Predicate { transaction in
@@ -30,7 +48,38 @@ class DuplicateDetectionService {
         }
     }
 
-    // Check if a transaction is a duplicate based on key attributes
+    // Check if a transaction is a duplicate based on key attributes (with account filter)
+    func isTransactionDuplicate(
+        amount: Double,
+        merchant: String,
+        date: Date,
+        accountId: UUID,
+        in context: ModelContext,
+        tolerance: TimeInterval = 86400 // 1 day in seconds
+    ) -> Bool {
+        let startDate = date.addingTimeInterval(-tolerance)
+        let endDate = date.addingTimeInterval(tolerance)
+
+        let descriptor = FetchDescriptor<Transaction>(
+            predicate: #Predicate { transaction in
+                transaction.amount == amount &&
+                transaction.merchant == merchant &&
+                transaction.date >= startDate &&
+                transaction.date <= endDate &&
+                transaction.account?.id == accountId
+            }
+        )
+
+        do {
+            let results = try context.fetch(descriptor)
+            return !results.isEmpty
+        } catch {
+            print("Error checking transaction duplicate: \(error)")
+            return false
+        }
+    }
+
+    // Check if a transaction is a duplicate based on key attributes (without account filter, for backward compatibility)
     func isTransactionDuplicate(
         amount: Double,
         merchant: String,
@@ -64,6 +113,7 @@ class DuplicateDetectionService {
         amount: Double,
         merchant: String,
         date: Date,
+        accountId: UUID,
         in context: ModelContext,
         amountTolerance: Double = 0.01,
         dateTolerance: TimeInterval = 259200 // 3 days
@@ -78,7 +128,8 @@ class DuplicateDetectionService {
                 transaction.amount >= minAmount &&
                 transaction.amount <= maxAmount &&
                 transaction.date >= startDate &&
-                transaction.date <= endDate
+                transaction.date <= endDate &&
+                transaction.account?.id == accountId
             }
         )
 

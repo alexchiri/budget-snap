@@ -10,20 +10,20 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var transactions: [Transaction]
+    @Query private var accounts: [Account]
     @State private var selectedTab = 0
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            TransactionsView()
+            BudgetsView()
                 .tabItem {
-                    Label("Transactions", systemImage: "list.bullet.rectangle")
+                    Label("Budget", systemImage: "chart.pie")
                 }
                 .tag(0)
 
-            BudgetsView()
+            AccountsView()
                 .tabItem {
-                    Label("Budgets", systemImage: "chart.pie")
+                    Label("Accounts", systemImage: "wallet.pass")
                 }
                 .tag(1)
 
@@ -44,5 +44,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: [Transaction.self, Budget.self, Category.self], inMemory: true)
+        .modelContainer(for: [Account.self, Transaction.self, Budget.self, Category.self], inMemory: true)
 }
