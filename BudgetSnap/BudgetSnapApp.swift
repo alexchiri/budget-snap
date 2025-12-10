@@ -17,6 +17,17 @@ struct BudgetSnapApp: App {
             Budget.self,
             Category.self
         ])
+
+        // Ensure Application Support directory exists
+        let appSupportURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+        if !FileManager.default.fileExists(atPath: appSupportURL.path) {
+            do {
+                try FileManager.default.createDirectory(at: appSupportURL, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                fatalError("Could not create Application Support directory: \(error)")
+            }
+        }
+
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
         do {
