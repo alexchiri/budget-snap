@@ -9,6 +9,7 @@ import SwiftUI
 import PhotosUI
 import SwiftData
 
+@available(iOS 17.0, *)
 struct ScreenshotImportView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss

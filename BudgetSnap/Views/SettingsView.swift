@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 import UniformTypeIdentifiers
 
+@available(iOS 17.0, *)
 struct SettingsView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var transactions: [Transaction]

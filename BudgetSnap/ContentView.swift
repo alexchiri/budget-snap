@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 
+@available(iOS 17.0, *)
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var accounts: [Account]

@@ -9,6 +9,7 @@ import Foundation
 import SwiftData
 import SwiftUI
 
+@available(iOS 17.0, *)
 @Model
 final class Category {
     var id: UUID
